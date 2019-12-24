@@ -23,10 +23,7 @@ element.send_keys(user_name)
 element = driver.find_element_by_id("tbPrivate")
 element.send_keys(password)
 
-# get the submit button
 bt_submit = driver.find_element_by_css_selector("[type=submit]")
-
-# wait for the user to click the submit button (check every 1s with a 1000s timeout)
 WebDriverWait(driver, timeout=300, poll_frequency=1) \
   .until(EC.staleness_of(bt_submit))
 
@@ -39,7 +36,7 @@ def fillMarks(ClassID, sheetName, firstStudentIDRowNumber, lastStudentIDRowNumbe
 
     time.sleep(1)
     sht = wb[sheetName]
-
+    
     elem = driver.find_element_by_id("ctl00_PlaceHolderMain_gvCourseSectionExamsGrades_ctl01_cbHeader").click()
     time.sleep(1)
 
@@ -96,7 +93,6 @@ def fillMarks(ClassID, sheetName, firstStudentIDRowNumber, lastStudentIDRowNumbe
 
     elem = driver.find_element_by_id("ctl00_PlaceHolderMain_ibtnSave").click()
     time.sleep(3)
-# ------------------------------------------------------------------------------
 
 ‫#‬ نداء لوظيفة الرصد من خلال تحديد اسم الورقة وصف البداية والنهاية وموقع كل عمود درجات بالأرقام وليس الأحرف
 fillMarks(ClassID="ctl00_PlaceHolderMain_gvCourseSections_ctl04_lbtnViewGrades", sheetName="شعبة 4", firstStudentIDRowNumber=3, lastStudentIDRowNumber=32, shortAmlyExam=5, shortNdryExam=6, mshroaat=7, mosharkh=8, wajebat=9, mlfAamal=10, finalNdryExam=11, finalAmlyExam=12, hdoorMark=13, hdoorStatus=14)
